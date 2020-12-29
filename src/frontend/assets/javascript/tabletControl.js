@@ -1,9 +1,12 @@
 import updateClock from "./header/clock.js";
 const openTablet = () => {
     $("#container").show("slow");
+    setTimeout(() => $("#display").css("opacity", "100"), 100);
 };
 const closeTablet = () => {
-    $("#container").hide("slow");
+    $("#display").css("opacity", "0");
+    setTimeout(() => $("#container").hide("fast"), 300);
+    ;
 };
 window.addEventListener("message", function (event) {
     var item = event.data;
@@ -19,5 +22,6 @@ window.addEventListener("message", function (event) {
 $(document).keydown(function (e) {
     console.log(e.keyCode);
 });
+openTablet();
 updateClock();
-setInterval(updateClock, 100);
+setInterval(updateClock, 1000);
