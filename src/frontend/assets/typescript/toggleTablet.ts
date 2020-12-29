@@ -1,6 +1,7 @@
 
 const openTablet = (): void => {
   $("#container").show("slow");
+  updateClock();
 };
 const closeTablet = (): void => {
   $("#container").hide("slow");
