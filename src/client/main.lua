@@ -9,6 +9,10 @@ Citizen.CreateThread(function()
   end
 end)
 
+--[[=====================================================================================
+                                    Functions
+=====================================================================================--]]
+
 function hasTablet (cb)
   if (ESX == nil) then return cb(0) end
   ESX.TriggerServerCallback('tablet:getItemAmount', function(qtty)
@@ -16,16 +20,20 @@ function hasTablet (cb)
   end, 'tablet')
 end
 
-function ShowNoPhoneWarning () 
+function ShowNoTabletWarning () 
   if (ESX == nil) then return end
   ESX.ShowNotification(_U('no_phone'))
 end 
 
+--[[=====================================================================================
+                                 Toggle Tablet
+=====================================================================================--]]
+
 Citizen.CreateThread(function()
     while true do
       Citizen.Wait(0)
-      if IsControlJustPressed(1, KeyOpenClose) then
-        TooglePhone()
+        if IsControlJustPressed(1, Config.OpenKey) then
+          ToggleTablet()
+        end
     end
-  end
 end)

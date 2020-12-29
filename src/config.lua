@@ -6,4 +6,5 @@ Config.Locale = 'en'
 Config.EnableItem = false
 
 -- Key to open the Tablet if "EnableItem" is set to false
-Config.OpenKey = 
+-- https://docs.fivem.net/docs/game-references/controls/
+Config.OpenKey = 289 --F2
