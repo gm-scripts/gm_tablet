@@ -1,8 +1,8 @@
-var openTablet = function () {
+import updateClock from "./header/clock.js";
+const openTablet = () => {
     $("#container").show("slow");
-    updateClock();
 };
-var closeTablet = function () {
+const closeTablet = () => {
     $("#container").hide("slow");
 };
 window.addEventListener("message", function (event) {
@@ -16,3 +16,8 @@ window.addEventListener("message", function (event) {
         closeTablet();
     }
 });
+$(document).keydown(function (e) {
+    console.log(e.keyCode);
+});
+updateClock();
+setInterval(updateClock, 100);

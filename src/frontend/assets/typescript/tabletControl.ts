@@ -1,7 +1,7 @@
+import updateClock from "./header/clock.js";
 
 const openTablet = (): void => {
   $("#container").show("slow");
-  updateClock();
 };
 const closeTablet = (): void => {
   $("#container").hide("slow");
@@ -20,3 +20,10 @@ window.addEventListener("message", function (event) {
     closeTablet();
   }
 });
+
+$(document).keydown(function(e) {
+  console.log(e.keyCode)
+});
+
+updateClock();
+setInterval(updateClock, 100)
