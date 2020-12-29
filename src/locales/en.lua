@@ -1,3 +1,3 @@
 Locales['en'] = {
-    ['no_phone'] = 'You have ~r~no phone~s~!',
-  }
+    ['no_tablet'] = 'You have ~r~no tablet~s~!'
+}

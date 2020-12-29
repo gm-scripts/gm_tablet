@@ -12,10 +12,13 @@ files {
 }
 
 client_scripts {
-    'client/*'
-    'locales/*'
+    '@1_6/locale.lua',
+    'client/*',
+    'locales/*',
+    'config.lua'
 }
 
 server_scripts {
+    '@1_6/locale.lua',
     'server/*'
 }
