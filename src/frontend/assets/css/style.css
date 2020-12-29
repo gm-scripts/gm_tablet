@@ -1,0 +1,48 @@
+#container #frame {
+  border-top: 0.4vh solid #6f6f6f;
+  border-left: 0.4vh solid #6f6f6f;
+  border-right: 0.4vh solid #3c3c3c;
+  border-bottom: 0.4vh solid #3c3c3c;
+  position: relative;
+  background-color: #111111;
+  height: 75vh;
+  width: 112.5vh;
+  border-radius: 5vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+#container #frame #home-btn {
+  border-top: 0.3vh solid #040404;
+  border-left: 0.3vh solid #040404;
+  border-right: 0.3vh solid #1e1e1e;
+  border-bottom: 0.3vh solid #1e1e1e;
+  background-color: #111111;
+  right: 1.1vh;
+  border-radius: 50%;
+  position: absolute;
+  height: 6vh;
+  width: 6vh;
+}
+
+#container #frame #display {
+  border-radius: 1px;
+  position: relative;
+  left: -0.9vh;
+  height: 69.75vh;
+  width: 97.5vh;
+  background-color: #888888;
+}
+
+body, html {
+  background-color: #333333;
+  margin: 0;
+  padding: 0;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+/*# sourceMappingURL=style.css.map */

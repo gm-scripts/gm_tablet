@@ -1,0 +1,11 @@
+@import "./apps/_frame";
+@import "./_mixins";
+
+body, html {
+  background-color: #333333;
+  @include no-margin;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+}

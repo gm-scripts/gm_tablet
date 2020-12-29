@@ -1,0 +1,18 @@
+@mixin no-margin {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin casing($color, $thiccness, $lighting-contrast, $reverse) {
+  @if $reverse {
+    border-top: $thiccness solid darken($color, $lighting-contrast);
+    border-left: $thiccness solid darken($color, $lighting-contrast);
+    border-right: $thiccness solid lighten($color, $lighting-contrast);
+    border-bottom: $thiccness solid lighten($color, $lighting-contrast);
+  } @else {
+    border-top: $thiccness solid lighten($color, $lighting-contrast);
+    border-left: $thiccness solid lighten($color, $lighting-contrast);
+    border-right: $thiccness solid darken($color, $lighting-contrast);
+    border-bottom: $thiccness solid darken($color, $lighting-contrast);
+  }
+}
