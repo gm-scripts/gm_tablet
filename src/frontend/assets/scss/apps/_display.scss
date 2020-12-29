@@ -1,9 +1,52 @@
+@import "../_var";
+
 #display {
   background-image: url("../img/tablet-bg.png");
   background-color: #ffbb55;
   background-size: cover;
+  position: relative;
 
   #header {
-    
+    top: 0;
+    position: absolute;
+    background-color: $header-bg-color;
+    height: $header-height;
+    width: 100%;
+    line-height: $header-height;
+    text-align: center;
+
+    #internet-symbol {
+      float: left;
+      margin-left: 0.2vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 0.1vh;
+      place-content: bottom;
+      width: 3vh;
+      height: 100%;
+      .bar {
+        border-radius: 2px;
+        margin-bottom: 0.3vh;
+        margin-top: auto;
+        width: 0.9vh;
+        background-color: $header-el-color;
+      }
+      #bar1 {
+        height: 25%;
+      }
+      #bar2 {
+        height: 50%;
+      }
+      #bar3 {
+        height: 75%;
+      }
+    }
+
+    #clock {
+      position: relative;
+      font-family: sans-serif;
+      bottom: -0.2vh;
+      color: $header-el-color;
+    }
   }
 }

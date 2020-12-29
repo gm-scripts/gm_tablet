@@ -60,6 +60,57 @@
   background-image: url("../img/tablet-bg.png");
   background-color: #ffbb55;
   background-size: cover;
+  position: relative;
+}
+
+#display #header {
+  top: 0;
+  position: absolute;
+  background-color: #808080b0;
+  height: 2.5vh;
+  width: 100%;
+  line-height: 2.5vh;
+  text-align: center;
+}
+
+#display #header #internet-symbol {
+  float: left;
+  margin-left: 0.2vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 0.1vh;
+  place-content: bottom;
+  width: 3vh;
+  height: 100%;
+}
+
+#display #header #internet-symbol .bar {
+  border-radius: 2px;
+  margin-bottom: 0.3vh;
+  margin-top: auto;
+  width: 0.9vh;
+  background-color: #ffffffbb;
+}
+
+#display #header #internet-symbol #bar1 {
+  height: 25%;
+}
+
+#display #header #internet-symbol #bar2 {
+  height: 50%;
+}
+
+#display #header #internet-symbol #bar3 {
+  height: 75%;
+}
+
+#display #header #clock {
+  position: relative;
+  font-family: sans-serif;
+  bottom: -0.2vh;
+  color: #ffffffbb;
 }
 
 body, html {
