@@ -13,6 +13,7 @@ files {
 
 client_scripts {
     'client/*'
+    'locales/*'
 }
 
 server_scripts {
