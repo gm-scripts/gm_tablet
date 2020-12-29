@@ -26,6 +26,27 @@
   width: 6vh;
 }
 
+#container #frame #camera-outer {
+  position: absolute;
+  left: 2.5vh;
+  border-top: 0.3vh solid #0b2015;
+  border-left: 0.3vh solid #0b2015;
+  border-right: 0.3vh solid #17462f;
+  border-bottom: 0.3vh solid #17462f;
+  border-radius: 50%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+#container #frame #camera-outer #camera-inner {
+  border-top: 0.3vh solid #172f46;
+  border-left: 0.3vh solid #172f46;
+  border-right: 0.3vh solid #0b1520;
+  border-bottom: 0.3vh solid #0b1520;
+  border-radius: inherit;
+}
+
 #container #frame #display {
   border-radius: 1px;
   position: relative;
@@ -33,6 +54,12 @@
   height: 69.75vh;
   width: 97.5vh;
   background-color: #888888;
+}
+
+#display {
+  background-image: url("../img/tablet-bg.png");
+  background-color: #ffbb55;
+  background-size: cover;
 }
 
 body, html {
