@@ -20,3 +20,12 @@ function ShowNoPhoneWarning ()
   if (ESX == nil) then return end
   ESX.ShowNotification(_U('no_phone'))
 end 
+
+Citizen.CreateThread(function()
+    while true do
+      Citizen.Wait(0)
+      if IsControlJustPressed(1, KeyOpenClose) then
+        TooglePhone()
+    end
+  end
+end)
