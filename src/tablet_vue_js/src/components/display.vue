@@ -26,7 +26,7 @@ export default {
   data() {
     return {
       clockHours: "00",
-      clockMinutes: "00",
+      clockMinutes: "00"
     };
   },
   methods: {
@@ -36,13 +36,13 @@ export default {
       this.clockMinutes = mins >= 10 ? mins.toString() : `0${mins}`;
       const hours = date.getHours();
       this.clockHours = hours >= 10 ? hours.toString() : `0${hours}`;
-    },
+    }
   },
-  mounted() {
-    const updater = setInterval(() => {
+  created: function() {
+    setInterval(() => {
       this.updateClock();
     }, 100);
-  },
+  }
 };
 </script>
 <style lang="scss">

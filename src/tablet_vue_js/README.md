@@ -1,4 +1,4 @@
-# tablet_vue
+# tablet_vue_js
 
 ## Project setup
 ```
