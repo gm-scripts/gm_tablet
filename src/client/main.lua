@@ -22,21 +22,23 @@ local hasTabletItem = false
 
 Citizen.CreateThread(function()
     while true do
-      Citizen.Wait(0)
         if IsControlJustPressed(1, Config.OpenKey) then
             if Config.EnableItem then
                 ESX.TriggerServerCallback('tablet:DoesPlayerHaveTabletItem', function(item)
                     if item then
-                        ToggleTablet()
+                        --ToggleTablet()
+                        TriggerEvent('tablet:Animation')
                         print('ToggleTablet')
                     else
                         ESX.ShowNotification(_U('no_tablet'))
                     end
                 end, 'tablet')
             elseif not Config.EnableItem then
-                ToggleTablet()
+                --ToggleTablet()
+                TriggerEvent('tablet:Animation')
                 print('ToggleTablet2')
             end
         end
+        Citizen.Wait(2000)
     end
 end)
