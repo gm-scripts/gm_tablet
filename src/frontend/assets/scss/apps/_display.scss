@@ -10,6 +10,7 @@
 }
 
 #display {
+  user-select: none;
   opacity: 0%;
   transition: linear opacity 0.1s;
   background-image: url("../img/tablet-bg.png");
@@ -57,16 +58,21 @@
 
     #clock {
       position: relative;
+      font-size: 2vh;
       font-family: sans-serif;
       bottom: -0.2vh;
       color: $header-el-color;
     }
-
-    #battery-symbol {
-      margin-right: 0.3vh;
-      float: right;
-      filter: invert(100%) opacity(75%);
+    #battery-container {
       height: $header-height;
+      float: right;
+      display: grid;
+      place-items: center;
+      #battery-symbol {
+        margin-right: 0.4vh;
+        filter: invert(100%) opacity(75%);
+        height: $header-height - 0.8vh;
+      }
     }
   }
 }

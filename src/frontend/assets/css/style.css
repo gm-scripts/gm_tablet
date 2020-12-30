@@ -66,6 +66,10 @@
 }
 
 #display {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   opacity: 0%;
   -webkit-transition: linear opacity 0.1s;
   transition: linear opacity 0.1s;
@@ -123,17 +127,25 @@
 
 #display #header #clock {
   position: relative;
+  font-size: 2vh;
   font-family: sans-serif;
   bottom: -0.2vh;
   color: #ffffffbb;
 }
 
-#display #header #battery-symbol {
-  margin-right: 0.3vh;
+#display #header #battery-container {
+  height: 2.5vh;
   float: right;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+#display #header #battery-container #battery-symbol {
+  margin-right: 0.4vh;
   -webkit-filter: invert(100%) opacity(75%);
           filter: invert(100%) opacity(75%);
-  height: 2.5vh;
+  height: 1.7vh;
 }
 
 body, html {
