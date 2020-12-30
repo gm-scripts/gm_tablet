@@ -1,11 +1,11 @@
 <template>
-  <div id="frame">
+  <div id="frame" @test-event="testMethod">
     <div id="home-btn"></div>
     <div id="camera-outer">
       <div id="camera-inner"></div>
     </div>
     <div id="off-overlay"></div>
-    <display></display>
+    <display :activationState="displayActivationState"></display>
   </div>
 </template>
 
@@ -14,6 +14,14 @@ import Display from "./display.vue";
 
 export default {
   name: "Frame",
+  props: {
+    displayActivationState: Boolean
+  },
+  methods: {
+    testMethod() {
+      console.log("yay");
+    }
+  },
   components: {
     Display
   }

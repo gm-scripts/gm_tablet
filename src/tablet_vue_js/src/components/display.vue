@@ -1,5 +1,5 @@
 <template>
-  <div id="display">
+  <div id="display" :style="{ opacity: opacity }">
     <div id="header">
       <div id="internet-symbol">
         <div id="bar1" class="bar"></div>
@@ -25,9 +25,18 @@ export default {
   name: "Display",
   data() {
     return {
+      opacity: "0%",
       clockHours: "00",
       clockMinutes: "00"
     };
+  },
+  props: {
+    activationState: Boolean
+  },
+  watch: {
+    "activationState": function(val) {
+      this.activation(val);
+    }
   },
   methods: {
     updateClock: function() {
@@ -36,6 +45,9 @@ export default {
       this.clockMinutes = mins >= 10 ? mins.toString() : `0${mins}`;
       const hours = date.getHours();
       this.clockHours = hours >= 10 ? hours.toString() : `0${hours}`;
+    },
+    activation(state) {
+      state ?  (this.opacity = "100%") : (this.opacity = "0%");
     }
   },
   created: function() {
@@ -50,7 +62,7 @@ export default {
 
 #display {
   user-select: none;
-  transition: linear opacity 0.1s;
+  transition: linear opacity 0.2s;
   background-image: url("../assets/img/tablet-bg.png");
   background-color: #ffbb55;
   background-size: cover;
