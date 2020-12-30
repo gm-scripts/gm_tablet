@@ -20,7 +20,7 @@
     <div id="dock"></div>
   </div>
 </template>
-<script lang="ts">
+<script>
 export default {
   name: "Display",
   data() {
