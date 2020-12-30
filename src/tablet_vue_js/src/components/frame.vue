@@ -1,10 +1,10 @@
 <template>
-  <div id="frame" @test-event="testMethod">
-    <div id="home-btn"></div>
-    <div id="camera-outer">
-      <div id="camera-inner"></div>
+  <div class="frame" @test-event="testMethod">
+    <div class="home-btn"></div>
+    <div class="camera-outer">
+      <div class="camera-inner"></div>
     </div>
-    <div id="off-overlay"></div>
+    <div class="off-overlay"></div>
     <display :activationState="displayActivationState"></display>
   </div>
 </template>
@@ -31,8 +31,8 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/scss/var";
 @import "../assets/scss/mixins";
-#frame {
-  #off-overlay {
+.frame {
+  .off-overlay {
     border-radius: 1px;
     position: absolute;
     left: $tablet-height * 0.088;
@@ -51,7 +51,7 @@ export default {
   display: grid;
   place-items: center;
 
-  #home-btn {
+  .home-btn {
     @include casing($frame-color, 0.3vh, 5, true);
     background-color: $frame-color;
     right: 1.1vh;
@@ -61,20 +61,20 @@ export default {
     width: 6vh;
   }
 
-  #camera-outer {
+  .camera-outer {
     position: absolute;
     left: 2.5vh;
     @include casing(#113322, 0.3vh, 5, true);
     border-radius: 50%;
     display: grid;
     place-items: center;
-    #camera-inner {
+    .camera-inner {
       @include casing(#112233, 0.3vh, 5, false);
       border-radius: inherit;
     }
   }
 
-  #display {
+  .display {
     border-radius: 1px;
     position: relative;
     left: $tablet-height * -0.012;

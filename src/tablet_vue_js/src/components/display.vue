@@ -1,23 +1,23 @@
 <template>
-  <div id="display" :style="{ opacity: opacity }">
-    <div id="header">
-      <div id="internet-symbol">
-        <div id="bar1" class="bar"></div>
-        <div id="bar2" class="bar"></div>
-        <div id="bar3" class="bar"></div>
+  <div class="display" :style="{ opacity: opacity }">
+    <div class="header">
+      <div class="internet-symbol">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
       </div>
 
-      <span id="clock">{{ clockHours }}:{{ clockMinutes }}</span>
-      <div id="battery-container">
+      <span class="clock">{{ clockHours }}:{{ clockMinutes }}</span>
+      <div class="battery-container">
         <img
           src="../assets/img/battery-icon.png"
           alt="420%"
-          id="battery-symbol"
+          class="battery-symbol"
         />
       </div>
     </div>
-    <div id="desktop"></div>
-    <div id="dock"></div>
+    <div class="desktop"></div>
+    <div class="dock"></div>
   </div>
 </template>
 <script>
@@ -47,27 +47,28 @@ export default {
       this.clockHours = hours >= 10 ? hours.toString() : `0${hours}`;
     },
     activation(state) {
-      state ?  (this.opacity = "100%") : (this.opacity = "0%");
+      state ? (this.opacity = "100%") : (this.opacity = "0%");
     }
   },
   created: function() {
     setInterval(() => {
       this.updateClock();
     }, 100);
+    this.activation(this.activationState);
   }
 };
 </script>
 <style lang="scss">
 @import "../assets/scss/var";
 
-#display {
+.display {
   user-select: none;
   transition: linear opacity 0.2s;
   background-image: url("../assets/img/tablet-bg.png");
   background-color: #ffbb55;
   background-size: cover;
 
-  #header {
+  .header {
     top: 0;
     position: absolute;
     background-color: $header-bg-color;
@@ -76,7 +77,7 @@ export default {
     line-height: $header-height;
     text-align: center;
 
-    #internet-symbol {
+    .internet-symbol {
       float: left;
       margin-left: 0.2vh;
       display: grid;
@@ -92,30 +93,30 @@ export default {
         width: 0.8vh;
         background-color: $header-el-color;
       }
-      #bar1 {
+      .bar1 {
         height: 30%;
       }
-      #bar2 {
+      .bar2 {
         height: 60%;
       }
-      #bar3 {
+      .bar3 {
         height: 90%;
       }
     }
 
-    #clock {
+    .clock {
       position: relative;
       font-size: 2vh;
       font-family: sans-serif;
       bottom: -0.2vh;
       color: $header-el-color;
     }
-    #battery-container {
+    .battery-container {
       height: $header-height;
       float: right;
       display: grid;
       place-items: center;
-      #battery-symbol {
+      .battery-symbol {
         margin-right: 0.4vh;
         filter: invert(100%) opacity(75%);
         height: $header-height - 0.8vh;

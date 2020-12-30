@@ -2,9 +2,9 @@
   <button @click="openTablet">Anzeigen</button>
   <button @click="closeTablet">Verstecken</button>
   <div
-    id="container"
+    class="container"
     :style="{
-      opacity: opacity,
+      opacity: opacity
     }"
   >
     <Frame :displayActivationState="display"></Frame>
@@ -20,7 +20,7 @@ export default defineComponent({
   data() {
     return {
       opacity: "100%",
-      display: false,
+      display: true
     };
   },
   components: {
@@ -67,7 +67,7 @@ html {
   height: 100vh;
   width: 100vw;
 }
-#container {
+.container {
   transition: linear opacity 0.3s;
 }
 </style>
