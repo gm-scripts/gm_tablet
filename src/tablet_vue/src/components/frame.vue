@@ -14,6 +14,9 @@ import Display from "./display.vue";
 
 export default {
   name: "Frame",
+  components: {
+    Display
+  }
 };
 </script>
 
