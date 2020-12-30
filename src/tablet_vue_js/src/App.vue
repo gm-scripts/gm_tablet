@@ -51,7 +51,7 @@ export default defineComponent({
       }
     });
     setInterval(this.$emit("yeet"), 1000);
-  },
+  }
 });
 </script>
 
