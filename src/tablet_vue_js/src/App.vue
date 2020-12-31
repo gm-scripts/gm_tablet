@@ -17,12 +17,12 @@ export default defineComponent({
   name: "App",
   data() {
     return {
-      opacity: "0%",
-      display: false
+      opacity: "100%",
+      display: true
     };
   },
   components: {
-    Frame,
+    Frame
   },
   methods: {
     openTablet() {
@@ -32,7 +32,7 @@ export default defineComponent({
     closeTablet() {
       this.display = false;
       setTimeout(() => (this.opacity = "0%"), 500);
-    },
+    }
   },
   mounted() {
     window.addEventListener("message", function(event) {
@@ -60,6 +60,7 @@ export default defineComponent({
 
 body,
 html {
+  background-color: #11111180;
   @include no-margin;
   display: grid;
   place-items: center;

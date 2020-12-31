@@ -16,13 +16,17 @@
         />
       </div>
     </div>
-    <div class="desktop"></div>
-    <div class="dock"></div>
+    <Desktop></Desktop>
   </div>
 </template>
 <script>
+import Desktop from "./desktop.vue";
+
 export default {
   name: "Display",
+  components: {
+    Desktop
+  },
   data() {
     return {
       opacity: "0%",
@@ -34,7 +38,7 @@ export default {
     activationState: Boolean
   },
   watch: {
-    "activationState": function(val) {
+    activationState: function(val) {
       this.activation(val);
     }
   },
@@ -107,7 +111,7 @@ export default {
     .clock {
       position: relative;
       font-size: 2vh;
-      font-family: sans-serif;
+      font-family: $os-font;
       bottom: -0.2vh;
       color: $header-el-color;
     }
