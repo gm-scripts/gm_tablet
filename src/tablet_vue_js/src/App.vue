@@ -1,6 +1,4 @@
 <template>
-  <button @click="openTablet">Anzeigen</button>
-  <button @click="closeTablet">Verstecken</button>
   <div
     class="container"
     :style="{
@@ -19,8 +17,8 @@ export default defineComponent({
   name: "App",
   data() {
     return {
-      opacity: "100%",
-      display: true
+      opacity: "0%",
+      display: false
     };
   },
   components: {
@@ -62,7 +60,6 @@ export default defineComponent({
 
 body,
 html {
-  background-color: #333333;
   @include no-margin;
   display: grid;
   place-items: center;
