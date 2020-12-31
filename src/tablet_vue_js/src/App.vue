@@ -39,8 +39,8 @@ export default defineComponent({
   mounted() {
     window.addEventListener("message", function(event) {
       let item = event.data;
-      console.log(`Event: ${event}`);
-      console.log(`Event data: ${event.data}`);
+      console.log(`Event: ${JSON.stringify(event, null, "  ")}`);
+      console.log(`Event data: ${JSON.stringify(event.data, null, "  ")}`);
 
       if (item.openTablet == true) {
         //Funktion die das Tablet öffnet
