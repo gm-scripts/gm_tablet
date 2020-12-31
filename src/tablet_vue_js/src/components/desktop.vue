@@ -1,30 +1,29 @@
 <template>
   <div>
     <div class="apps">
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
-      <AppIcon :iconSrc="settingsApp.icon" :title="settingsApp.title"></AppIcon>
+      <AppIcon v-for="app in apps" :key="app.id" :title="app.title" :iconSrc="app.icon"></AppIcon>
     </div>
   </div>
 </template>
 <script>
-import AppIcon from "./application.vue";
+import AppIcon from "./appIcon.vue";
 export default {
   name: "Desktop",
   data() {
     return {
-      settingsApp: {
-        icon: require("../assets/img/settings.jpg"),
-        title: "Anwendung"
+      apps: {
+        settings: {
+          id: 0,
+          title: "Settings",
+          icon: require("../assets/img/settingsApp.png"),
+          appName: "settings"
+        },
+        banking: {
+          id: 1,
+          title: "Banking",
+          icon: require("../assets/img/bankingApp.jpg"),
+          appName: "banking"
+        }
       }
     };
   },

@@ -5,7 +5,7 @@
       <div class="camera-inner"></div>
     </div>
     <div class="off-overlay"></div>
-    <display :activationState="displayActivationState"></display>
+    <Display :activationState="displayActivationState"></Display>
   </div>
 </template>
 
@@ -18,9 +18,6 @@ export default {
     displayActivationState: Boolean
   },
   methods: {
-    testMethod() {
-      console.log("yay");
-    }
   },
   components: {
     Display
