@@ -25,11 +25,11 @@ export default defineComponent({
     Frame
   },
   methods: {
-    openTablet() {
+    tabletOpen() {
       this.opacity = "100%";
       setTimeout(() => (this.display = true), 500);
     },
-    closeTablet() {
+    tabletClose() {
       this.display = false;
       setTimeout(() => (this.opacity = "0%"), 500);
     }
@@ -41,13 +41,11 @@ export default defineComponent({
       console.log(`Event data: ${JSON.stringify(event.data, null, "  ")}`);
 
       if (item.openTablet == true) {
-        //Funktion die das Tablet öffnet
-        this.openTablet();
+        this.tabletOpen();
       }
 
       if (item.openTablet == false) {
-        //Funktion die das Tablet schließt
-        this.closeTablet();
+        this.tabletClose();
       }
     });
     setInterval(this.$emit("yeet"), 1000);
