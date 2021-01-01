@@ -9,9 +9,7 @@ ui_page 'frontend/index.html'
 
 files {
     'frontend/*',
-    'frontend/assets/javascript/*',
-    'frontend/assets/javascript/header/*',
-    'frontend/assets/lib/*',
+    'frontend/assets/js/*',
     'frontend/assets/css/*',
     'frontend/assets/img/*'
 }
