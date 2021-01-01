@@ -17,8 +17,7 @@ export default {
   props: {
     displayActivationState: Boolean
   },
-  methods: {
-  },
+  methods: {},
   components: {
     Display
   }

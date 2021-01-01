@@ -25,22 +25,22 @@ import Desktop from "./desktop.vue";
 export default {
   name: "Display",
   components: {
-    Desktop
+    Desktop,
   },
   data() {
     return {
       opacity: "0%",
       clockHours: "00",
-      clockMinutes: "00"
+      clockMinutes: "00",
     };
   },
   props: {
-    activationState: Boolean
+    activationState: Boolean,
   },
   watch: {
     activationState: function(val) {
       this.activation(val);
-    }
+    },
   },
   methods: {
     updateClock: function() {
@@ -52,18 +52,19 @@ export default {
     },
     activation(state) {
       state ? (this.opacity = "100%") : (this.opacity = "0%");
-    }
+    },
   },
   created: function() {
     setInterval(() => {
       this.updateClock();
     }, 100);
     this.activation(this.activationState);
-  }
+  },
 };
 </script>
 <style lang="scss">
 @import "../assets/scss/var";
+@import "../assets/scss/mixins";
 
 .display {
   user-select: none;
@@ -80,6 +81,7 @@ export default {
     width: 100%;
     line-height: $header-height;
     text-align: center;
+    backdrop-filter: blur(20vh);
 
     .internet-symbol {
       float: left;

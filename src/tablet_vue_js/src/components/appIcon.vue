@@ -15,8 +15,8 @@ export default {
   props: {
     triggersApp: String,
     iconSrc: String,
-    title: String,
-  },
+    title: String
+  }
 };
 </script>
 <style lang="scss">
