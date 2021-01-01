@@ -41,11 +41,11 @@ export default defineComponent({
       console.log(`Event data: ${JSON.stringify(event.data, null, "  ")}`);
 
       if (item.openTablet == true) {
-        this.methods.tabletOpen();
+        this.tabletOpen();
       }
 
       if (item.openTablet == false) {
-        this.methods.tabletClose();
+        this.tabletClose();
       }
     });
     setInterval(this.$emit("yeet"), 1000);

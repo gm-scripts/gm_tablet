@@ -1,7 +1,7 @@
 <template>
   <div class="appIcon">
     <div class="icon-container">
-      <img :src="iconSrc" class="icon" />
+      <div :src="iconSrc" class="icon" :style="{backgroundImage: iconImg}"></div>
     </div>
     <div class="title">{{ title }}</div>
   </div>
@@ -10,7 +10,9 @@
 export default {
   name: "AppIcon",
   data() {
-    return {};
+    return {
+      iconImg: `url("${this.iconSrc}")`
+    };
   },
   props: {
     triggersApp: String,
@@ -34,6 +36,7 @@ export default {
       box-shadow: 0 0 0 0 20 #00000080;
       height: $app-size;
       width: $app-size;
+      background-size: cover;
       border-radius: $app-border-radius;
       transition: transform 0.2s;
     }
