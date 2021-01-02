@@ -1,8 +1,12 @@
 <template>
   <div class="appIcon">
-    <div class="icon-container">
-      <div :src="iconSrc" class="icon" :style="{backgroundImage: iconImg}"></div>
-    </div>
+    <router-link :to="triggersApp" class="icon-container">
+      <div
+        :src="iconSrc"
+        class="icon"
+        :style="{ backgroundImage: iconImg }"
+      ></div
+    ></router-link>
     <div class="title">{{ title }}</div>
   </div>
 </template>
@@ -11,14 +15,14 @@ export default {
   name: "AppIcon",
   data() {
     return {
-      iconImg: `url("${this.iconSrc}")`
+      iconImg: `url("${this.iconSrc}")`,
     };
   },
   props: {
     triggersApp: String,
     iconSrc: String,
-    title: String
-  }
+    title: String,
+  },
 };
 </script>
 <style lang="scss">

@@ -1,65 +1,35 @@
 <template>
   <div class="display" :style="{ opacity: opacity }">
-    <div class="header">
-      <div class="internet-symbol">
-        <div class="bar bar1"></div>
-        <div class="bar bar2"></div>
-        <div class="bar bar3"></div>
-      </div>
 
-      <span class="clock">{{ clockHours }}:{{ clockMinutes }}</span>
-      <div class="battery-container">
-        <img
-          src="../assets/img/battery-icon.png"
-          alt="420%"
-          class="battery-symbol"
-        />
-      </div>
-    </div>
-    <Desktop></Desktop>
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import Desktop from "./desktop.vue";
 
 export default {
   name: "Display",
-  components: {
-    Desktop,
-  },
+  components: {},
   data() {
     return {
-      opacity: "0%",
-      clockHours: "00",
-      clockMinutes: "00",
+      opacity: "0%"
     };
   },
   props: {
-    activationState: Boolean,
+    activationState: Boolean
   },
   watch: {
     activationState: function(val) {
       this.activation(val);
-    },
+    }
   },
   methods: {
-    updateClock: function() {
-      const date = new Date();
-      const mins = date.getMinutes();
-      this.clockMinutes = mins >= 10 ? mins.toString() : `0${mins}`;
-      const hours = date.getHours();
-      this.clockHours = hours >= 10 ? hours.toString() : `0${hours}`;
-    },
     activation(state) {
       state ? (this.opacity = "100%") : (this.opacity = "0%");
-    },
+    }
   },
-  created: function() {
-    setInterval(() => {
-      this.updateClock();
-    }, 100);
+  created() {
     this.activation(this.activationState);
-  },
+  }
 };
 </script>
 <style lang="scss">
@@ -73,61 +43,6 @@ export default {
   background-color: #ffbb55;
   background-size: cover;
 
-  .header {
-    top: 0;
-    position: absolute;
-    background-color: $header-bg-color;
-    height: $header-height;
-    width: 100%;
-    line-height: $header-height;
-    text-align: center;
-    backdrop-filter: blur(20vh);
 
-    .internet-symbol {
-      float: left;
-      margin-left: 0.2vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-column-gap: 0.2vh;
-      place-content: bottom;
-      width: 3vh;
-      height: 100%;
-      .bar {
-        border-radius: 1px;
-        margin-bottom: 5%;
-        margin-top: auto;
-        width: 0.8vh;
-        background-color: $header-el-color;
-      }
-      .bar1 {
-        height: 30%;
-      }
-      .bar2 {
-        height: 60%;
-      }
-      .bar3 {
-        height: 90%;
-      }
-    }
-
-    .clock {
-      position: relative;
-      font-size: 2vh;
-      font-family: $os-font;
-      bottom: -0.2vh;
-      color: $header-el-color;
-    }
-    .battery-container {
-      height: $header-height;
-      float: right;
-      display: grid;
-      place-items: center;
-      .battery-symbol {
-        margin-right: 0.4vh;
-        filter: invert(100%) opacity(75%);
-        height: $header-height - 0.8vh;
-      }
-    }
-  }
 }
 </style>

@@ -1,6 +1,13 @@
 <template>
-  <div class="frame" @test-event="testMethod">
-    <div class="home-btn"></div>
+  <div class="frame">
+    <router-link
+      to="/"
+      class="home-btn"
+      :style="{ backgroundColor: homeBtnBgColor }"
+      @mousedown="homeBtnMouseDown"
+      @mouseup="homeBtnMouseUp"
+    >
+    </router-link>
     <div class="camera-outer">
       <div class="camera-inner"></div>
     </div>
@@ -14,13 +21,25 @@ import Display from "./display.vue";
 
 export default {
   name: "Frame",
-  props: {
-    displayActivationState: Boolean
+  data() {
+    return {
+      homeBtnBgColor: "#111111",
+    };
   },
-  methods: {},
+  props: {
+    displayActivationState: Boolean,
+  },
+  methods: {
+    homeBtnMouseDown() {
+      this.homeBtnBgColor = "#0f0f0f";
+    },
+    homeBtnMouseUp() {
+      this.homeBtnBgColor = "#111111";
+    },
+  },
   components: {
-    Display
-  }
+    Display,
+  },
 };
 </script>
 
@@ -55,6 +74,7 @@ export default {
     position: absolute;
     height: 6vh;
     width: 6vh;
+    transition: background-color 0.1s;
   }
 
   .camera-outer {
