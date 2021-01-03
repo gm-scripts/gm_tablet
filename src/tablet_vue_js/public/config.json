@@ -1,0 +1,15 @@
+{
+  "general": {
+    "standardTheme": "dark",
+    "standardBackground": ""
+  },
+  "settings": {
+    "lang": {
+      "appName": "Einstellungen",
+      "personalisationTab": {
+        "themeSetting": "Farbthema",
+        "bgSetting": "Hintergrundbild"
+      }
+    }
+  }
+}

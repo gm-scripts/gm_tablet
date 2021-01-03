@@ -1,0 +1,15 @@
+{
+  "general": {
+    "standardTheme": "dark",
+    "standardBackground": ""
+  },
+  "settings": {
+    "lang": {
+      "appName": "meep",
+      "personalisationTab": {
+        "themeSetting": "Farbthema",
+        "bgSetting": "Hintergrundbild"
+      }
+    }
+  }
+}

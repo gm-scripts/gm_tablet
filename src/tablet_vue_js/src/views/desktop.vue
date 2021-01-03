@@ -41,6 +41,7 @@
   </div>
 </template>
 <script>
+import config from "../../public/config.json";
 import AppIcon from "../components/appIcon.vue";
 export default {
   name: "Desktop",
@@ -49,7 +50,7 @@ export default {
       apps: {
         settings: {
           id: 0,
-          title: "Settings",
+          title: config.settings.lang.appName,
           icon: require("../assets/img/settingsApp.png"),
           appName: "settings",
           appPath: "/settings",
@@ -94,9 +95,12 @@ export default {
     AppIcon,
   },
   mounted() {
-    console.log(this.updateClock);
     this.updateClock();
     setInterval(this.updateClock, 100);
+
+    fetch(process.env.BASE_URL + "config.json")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
   },
 };
 </script>
