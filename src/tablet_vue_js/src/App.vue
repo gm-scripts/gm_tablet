@@ -13,12 +13,12 @@ import Frame from "./components/frame";
 export default {
   name: "App",
   components: {
-    Frame,
+    Frame
   },
   data() {
     return {
       opacity: "0%",
-      display: false,
+      display: false
     };
   },
   methods: {
@@ -35,7 +35,7 @@ export default {
     closeTablet() {
       this.display = false;
       setTimeout(() => (this.opacity = "0%"), 500);
-    },
+    }
   },
   mounted() {
     window.addEventListener("message", event => {
@@ -45,7 +45,7 @@ export default {
       else if (item.openTablet == false) this.closeTablet();
     });
     setInterval(this.$emit("yeet"), 1000);
-  },
+  }
 };
 </script>
 

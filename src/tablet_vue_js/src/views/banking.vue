@@ -15,7 +15,7 @@ export default {};
   font-family: avenir, arial, sans-serif;
   background-color: #fff;
   h1 {
-    @include no-margin
+    @include no-margin;
   }
 }
 </style>

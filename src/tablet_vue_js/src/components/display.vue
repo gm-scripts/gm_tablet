@@ -1,11 +1,9 @@
 <template>
   <div class="display" :style="{ opacity: opacity }">
-
     <router-view></router-view>
   </div>
 </template>
 <script>
-
 export default {
   name: "Display",
   components: {},
@@ -42,7 +40,5 @@ export default {
   background-image: url("../assets/img/tablet-bg.png");
   background-color: #ffbb55;
   background-size: cover;
-
-
 }
 </style>

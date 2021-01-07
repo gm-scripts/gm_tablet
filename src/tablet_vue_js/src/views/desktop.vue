@@ -53,32 +53,32 @@ export default {
           title: config.settings.lang.appName,
           icon: require("../assets/img/settingsApp.png"),
           appName: "settings",
-          appPath: "/settings",
+          appPath: "/settings"
         },
         banking: {
           id: 1,
           title: "Banking",
           icon: require("../assets/img/bankingApp.jpg"),
           appName: "banking",
-          appPath: "/banking",
-        },
+          appPath: "/banking"
+        }
       },
       importantApps: {
         settings: {
           id: 0,
           icon: require("../assets/img/settingsApp.png"),
           appName: "settings",
-          appPath: "/settings",
+          appPath: "/settings"
         },
         banking: {
           id: 1,
           icon: require("../assets/img/bankingApp.jpg"),
           appName: "banking",
-          appPath: "/banking",
-        },
+          appPath: "/banking"
+        }
       },
       clockHours: "00",
-      clockMinutes: "00",
+      clockMinutes: "00"
     };
   },
   methods: {
@@ -88,20 +88,16 @@ export default {
       this.clockMinutes = mins >= 10 ? mins.toString() : `0${mins}`;
       const hours = date.getHours();
       this.clockHours = hours >= 10 ? hours.toString() : `0${hours}`;
-    },
+    }
   },
   props: {},
   components: {
-    AppIcon,
+    AppIcon
   },
   mounted() {
     this.updateClock();
     setInterval(this.updateClock, 100);
-
-    fetch(process.env.BASE_URL + "config.json")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  },
+  }
 };
 </script>
 <style lang="scss">

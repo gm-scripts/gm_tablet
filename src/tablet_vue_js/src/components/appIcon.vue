@@ -15,14 +15,14 @@ export default {
   name: "AppIcon",
   data() {
     return {
-      iconImg: `url("${this.iconSrc}")`,
+      iconImg: `url("${this.iconSrc}")`
     };
   },
   props: {
     triggersApp: String,
     iconSrc: String,
-    title: String,
-  },
+    title: String
+  }
 };
 </script>
 <style lang="scss">

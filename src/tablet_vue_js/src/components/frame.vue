@@ -23,11 +23,11 @@ export default {
   name: "Frame",
   data() {
     return {
-      homeBtnBgColor: "#111111",
+      homeBtnBgColor: "#111111"
     };
   },
   props: {
-    displayActivationState: Boolean,
+    displayActivationState: Boolean
   },
   methods: {
     homeBtnMouseDown() {
@@ -35,11 +35,11 @@ export default {
     },
     homeBtnMouseUp() {
       this.homeBtnBgColor = "#111111";
-    },
+    }
   },
   components: {
-    Display,
-  },
+    Display
+  }
 };
 </script>
 
