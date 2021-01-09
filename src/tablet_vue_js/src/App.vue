@@ -29,13 +29,18 @@ export default {
       postMessage({ openTablet: false });
     },
     openTablet() {
-      this.opacity = "100%";
-      setTimeout(() => (this.display = true), 500);
+      if (this.$store.getters) {
+        this.opacity = "100%";
+        setTimeout(() => (this.display = true), 500);
+      }
     },
     closeTablet() {
       this.display = false;
       setTimeout(() => (this.opacity = "0%"), 500);
     }
+  },
+  beforeCreate() {
+    this.$store.commit("updateConfig");
   },
   mounted() {
     window.addEventListener("message", event => {
@@ -44,7 +49,7 @@ export default {
       if (item.openTablet == true) this.openTablet();
       else if (item.openTablet == false) this.closeTablet();
     });
-    setInterval(this.$emit("yeet"), 1000);
+    this.openTabletMsg();
   }
 };
 </script>

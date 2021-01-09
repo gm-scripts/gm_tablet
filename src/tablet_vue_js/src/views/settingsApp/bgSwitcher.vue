@@ -1,10 +1,10 @@
 <template lang="">
   <div class="application">
-    <Sidebar selectedItem="none"></Sidebar>
+    <Sidebar selected="background"></Sidebar>
   </div>
 </template>
 <script>
-import Sidebar from "./settingsApp/sidebar.vue";
+import Sidebar from "./sidebar.vue";
 export default {
   name: "Settings",
   components: {
@@ -13,8 +13,8 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../assets/scss/mixins";
-@import "../assets/scss/var";
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/var";
 .application {
   height: 100%;
   font-family: $os-font;

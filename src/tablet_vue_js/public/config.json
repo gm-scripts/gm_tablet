@@ -3,13 +3,18 @@
     "standardTheme": "dark",
     "standardBackground": ""
   },
-  "settings": {
-    "lang": {
-      "appName": "Einstellungen",
-      "personalisationTab": {
-        "themeSetting": "Farbthema",
-        "bgSetting": "Hintergrundbild"
+  "apps": {
+    "settings": {
+      "title": "Settings",
+      "appPath": "/settings",
+      "lang": {
+        "themeTitle": "Color Theme",
+        "backgroundTitle": "Background Image"
       }
+    },
+    "banking": {
+      "title": "Banking",
+      "appPath": "/banking"
     }
   }
 }

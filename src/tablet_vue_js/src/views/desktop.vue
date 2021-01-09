@@ -21,7 +21,7 @@
         <AppIcon
           v-for="app in apps"
           :key="app.id"
-          :title="app.title"
+          :title="app.title()"
           :iconSrc="app.icon"
           :triggersApp="app.appPath"
         ></AppIcon>
@@ -41,23 +41,22 @@
   </div>
 </template>
 <script>
-import config from "../../public/config.json";
 import AppIcon from "../components/appIcon.vue";
 export default {
   name: "Desktop",
   data() {
+    let self = this;
     return {
       apps: {
         settings: {
           id: 0,
-          title: config.settings.lang.appName,
+          title: () => self.getConfigApp("settings").title,
           icon: require("../assets/img/settingsApp.png"),
-          appName: "settings",
           appPath: "/settings"
         },
         banking: {
           id: 1,
-          title: "Banking",
+          title: () => self.getConfigApp("banking").title,
           icon: require("../assets/img/bankingApp.jpg"),
           appName: "banking",
           appPath: "/banking"
@@ -88,6 +87,12 @@ export default {
       this.clockMinutes = mins >= 10 ? mins.toString() : `0${mins}`;
       const hours = date.getHours();
       this.clockHours = hours >= 10 ? hours.toString() : `0${hours}`;
+    },
+    getConfigApp(appId) {
+      let config = Object.assign({}, this.$store.getters.config);
+      let apps = Object.assign({}, config.apps);
+      let app = Object.assign({}, apps[appId]);
+      return app;
     }
   },
   props: {},
