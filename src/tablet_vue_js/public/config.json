@@ -1,15 +1,15 @@
 {
   "general": {
-    "standardTheme": "dark",
-    "standardBackground": ""
+    "defaultTheme": "dark",
+    "defaultBackground": ""
   },
   "apps": {
     "settings": {
       "title": "Settings",
       "appPath": "/settings",
       "lang": {
-        "themeTitle": "Color Theme",
-        "backgroundTitle": "Background Image"
+        "appearanceTitle": "Appearance",
+        "backgroundTitle": "Background image"
       }
     },
     "banking": {

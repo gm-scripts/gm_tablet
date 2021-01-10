@@ -17,8 +17,8 @@ export default {
     return {
       tabs: {
         theme: {
-          title: self.getConfigData("lang").themeTitle,
-          path: "/settings/theme",
+          title: self.getConfigData("lang").appearanceTitle,
+          path: "/settings/appearance",
           id: "theme"
         },
         background: {
@@ -43,11 +43,11 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 @import "../../assets/scss/var";
 @import "../../assets/scss/mixins";
 .sidebar {
-  border-right: 1px solid $light-secondary;
+  border-right: 1px solid var(--secondary);
   height: 100%;
   width: 25vh;
   position: absolute;
@@ -56,15 +56,15 @@ export default {
     @include no-margin;
     list-style-type: none;
     .nav-item {
-      border-bottom: 1px solid $light-secondary;
+      border-bottom: 1px solid var(--secondary);
       padding: 1vh;
       margin: 0 2vh;
       .nav-link {
         text-decoration: none;
-        color: $light-text-color;
+        color: var(--text-color);
         transition: color 0.2s;
         &:hover {
-          color: lighten($light-text-color, 30);
+          color: var(--text-color-hover);
           transition: color 0.1s;
         }
         &.router-link-active {

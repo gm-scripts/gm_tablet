@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Desktop from "../views/desktop.vue";
 import Settings from "../views/settings-main.vue";
-import SettingsTheme from "../views/settingsApp/themePage.vue";
+import SettingsAppearance from "../views/settingsApp/appearancePage.vue";
 import SettingsBackground from "../views/settingsApp/bgSwitcher.vue";
 import Banking from "../views/banking.vue";
 
@@ -17,9 +17,9 @@ const routes = [
     component: Settings
   },
   {
-    path: "/settings/theme",
-    name: "SettingsTheme",
-    component: SettingsTheme
+    path: "/settings/appearance",
+    name: "SettingsAppearance",
+    component: SettingsAppearance
   },
   {
     path: "/settings/background",

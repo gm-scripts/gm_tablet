@@ -1,6 +1,7 @@
 <template lang="">
   <div class="application">
     <Sidebar selected="background"></Sidebar>
+    <div class="content"></div>
   </div>
 </template>
 <script>
@@ -12,12 +13,13 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style scoped lang="scss">
 @import "../../assets/scss/mixins";
 @import "../../assets/scss/var";
 .application {
   height: 100%;
   font-family: $os-font;
+  background-color: var(--primary);
   h1 {
     @include no-margin;
   }
