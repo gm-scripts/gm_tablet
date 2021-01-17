@@ -1,5 +1,12 @@
 <template>
-  <div class="display" :style="{ opacity: opacity }">
+  <div
+    class="display"
+    :style="{
+      opacity: opacity,
+      backgroundImage: backgroundImage,
+      backgroundColor: backgroundColor
+    }"
+  >
     <router-view></router-view>
   </div>
 </template>
@@ -14,6 +21,18 @@ export default {
   },
   props: {
     activationState: Boolean
+  },
+  computed: {
+    backgroundImage() {
+      let img = this.$store.getters.backgroundImage;
+      console.log(img);
+      return `url(${img})`;
+    },
+    backgroundColor() {
+      let col = this.$store.getters.backgroundColor;
+      console.log(col);
+      return col;
+    }
   },
   watch: {
     activationState: function(val) {
@@ -37,8 +56,8 @@ export default {
 .display {
   user-select: none;
   transition: linear opacity 0.2s;
-  background-image: url("../assets/img/tablet-bg.png");
-  background-color: #ffbb55;
+  background-image: var(--background-image);
+  background-color: var(--background-color);
   background-size: cover;
 }
 </style>

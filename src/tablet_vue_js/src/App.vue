@@ -1,7 +1,9 @@
 <template>
+  <!--  DEV  -->
   <button @click="openTabletMsg">Open</button>
   <button @click="closeTabletMsg">Close</button>
   <button @click="clearLocalstorage">Reset</button>
+
   <Frame
     :displayActivationState="display"
     :style="{ opacity: opacity }"
@@ -37,6 +39,7 @@ export default {
     },
     closeTablet() {
       this.display = false;
+      this.$store.commit("updateConfig");
       setTimeout(() => (this.opacity = "0%"), 500);
     },
     clearLocalstorage: () => localStorage.clear(),
@@ -45,13 +48,9 @@ export default {
       let theme = localStorage.getItem("theme");
       let root = document.documentElement;
       let conf = Object.assign({}, this.$store.getters.config);
-      console.log(conf);
       conf = Object.assign({}, conf.general);
       conf = conf.defaultTheme;
-      console.log("conf: " + conf);
-      //shit
 
-      console.log(`defaultTheme: ${conf}, theme: ${theme}`);
       if (conf === undefined) {
         console.error("Error: config not loaded yet.");
         setTimeout(() => this.controlTheme(), 100);
@@ -59,19 +58,21 @@ export default {
         if (theme === null || theme === undefined) {
           localStorage.setItem("theme", conf);
         } else if (theme === "dark") {
-          console.log("setting theme to dark");
-          console.log("root: " + root);
+          // dark theme
           root.style.setProperty("--primary", "#333333");
           root.style.setProperty("--secondary", "#222222");
-          root.style.setProperty("--text-color", "#cfcfcf");
+          root.style.setProperty("--text-color", "#f8f8f8");
           root.style.setProperty("--text-color-hover", "#afafaf");
+          root.style.setProperty("--scrollbar-color", "#dfdfdf7f");
+          root.style.setProperty("--scrollbar-color-hover", "#ffffff7f");
         } else {
-          console.log(theme);
-          console.log("setting theme to light");
+          // light theme
           root.style.setProperty("--primary", "#eeeeee");
           root.style.setProperty("--secondary", "#aaaaaa");
           root.style.setProperty("--text-color", "#222222");
-          root.style.setProperty("--text-color-hover", "#333333");
+          root.style.setProperty("--text-color-hover", "#3333337f");
+          root.style.setProperty("--scrollbar-color", "#3333333f");
+          root.style.setProperty("--scrollbar-color-hover", "#2222223f");
         }
       }
     }
@@ -86,8 +87,19 @@ export default {
       if (item.openTablet == true) this.openTablet();
       else if (item.openTablet == false) this.closeTablet();
     });
-    this.openTabletMsg();
     this.controlTheme();
+
+    //DEV
+    this.openTabletMsg();
+
+    window.addEventListener("keydown", event => {
+      if (event.keyCode == 27) {
+        this.closeTabletMsg();
+        fetch("https://tablet/exit", {
+          method: "post"
+        });
+      }
+    });
   },
   computed: {
     theme() {
@@ -99,13 +111,11 @@ export default {
   },
   watch: {
     configLoaded: function() {
-      console.log("config " + this.configLoaded);
       if (this.$store.getters.configLoaded === true) {
         this.controlTheme();
       }
     },
     theme() {
-      console.log("theme changed");
       this.controlTheme();
     }
   }
@@ -123,9 +133,22 @@ body {
   place-items: center;
   height: 100vh;
   width: 100vw;
+
+  //DEV
   background-color: #00000080;
 }
 .frame {
   transition: opacity 0.5s;
+}
+::-webkit-scrollbar {
+  width: 1vh;
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 0.5vh;
+  &:hover {
+    background-color: var(--scrollbar-color-hover);
+  }
 }
 </style>

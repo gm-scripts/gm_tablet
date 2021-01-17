@@ -105,7 +105,7 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 @import "../assets/scss/var";
 .header {
   top: 0;

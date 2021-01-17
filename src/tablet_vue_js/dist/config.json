@@ -1,8 +1,7 @@
 {
   "general": {
     "defaultTheme": "dark",
-    "defaultBackgroundImage": "/bg/tablet-bg.png",
-    "defaultBackgroundColor": "#ccbbaa"
+    "defaultBackground": ""
   },
   "apps": {
     "settings": {

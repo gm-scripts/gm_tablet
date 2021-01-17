@@ -3,7 +3,28 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     configLoaded: false,
-    config: null,
+    config: {
+      general: {
+        defaultTheme: "dark",
+        defaultBackgroundImage: "/bg/tablet-bg.png",
+        defaultBackgroundColor: "#ccbbaa"
+      },
+      apps: {
+        settings: {
+          title: "Settings",
+          appPath: "/settings",
+          lang: {
+            appearanceTitle: "Appearance",
+            backgroundTitle: "Background image",
+            backgroundSwitchHeader: "change Background Image"
+          }
+        },
+        banking: {
+          title: "Banking",
+          appPath: "/banking"
+        }
+      }
+    },
     toggleStates: {
       //false => dark, true => light
       themeSwitch: (() => {
@@ -11,7 +32,9 @@ export default createStore({
         else if (localStorage.getItem("theme") === "dark") return false;
         else console.log("no theme set!");
       })()
-    }
+    },
+    backgroundImage: localStorage.getItem("backgroundImage"),
+    backgroundColor: localStorage.getItem("backgroundColor")
   },
   mutations: {
     async updateConfig() {
@@ -26,15 +49,20 @@ export default createStore({
       this.state.toggleStates.themeSwitch
         ? (this.state.toggleStates.themeSwitch = false)
         : (this.state.toggleStates.themeSwitch = true);
-      console.log(
-        `colortheme now is: ${
-          this.state.toggleStates.themeSwitch ? "light" : "dark"
-        }`
-      );
       localStorage.setItem(
         "theme",
         this.state.toggleStates.themeSwitch ? "light" : "dark"
       );
+    },
+    setBackgroundImage(state, val) {
+      console.log(val);
+      localStorage.setItem("backgroundImage", val);
+      state.backgroundImage = val;
+    },
+    setBackgroundColor(state, val) {
+      console.log(val);
+      localStorage.setItem("backgroundColor", val);
+      state.backgroundColor = val;
     }
   },
   actions: {},
@@ -44,6 +72,29 @@ export default createStore({
     configLoaded: (state) => state.configLoaded,
     toggleStates: (state) => state.toggleStates,
     theme: (state) => (state.toggleStates.themeSwitch ? "light" : "dark"),
-    themeState: state => state.toggleStates.themeSwitch
+    themeState: (state) => state.toggleStates.themeSwitch,
+    settingsLang: (state) => state.config.apps.settings.lang,
+    backgroundImage: (state) => {
+      if (
+        state.backgroundImage === null ||
+        state.backgroundImage === undefined
+      ) {
+        setTimeout(() => {
+          state.backgroundImage = state.config.general.defaultBackgroundImage;
+        }, 200);
+      }
+      return state.backgroundImage;
+    },
+    backgroundColor: (state) => {
+      if (
+        state.backgroundColor === null ||
+        state.backgroundColor === undefined
+      ) {
+        setTimeout(() => {
+          state.backgroundColor = state.config.general.defaultBackgroundColor;
+        }, 200);
+      }
+      return state.backgroundColor;
+    }
   }
 });

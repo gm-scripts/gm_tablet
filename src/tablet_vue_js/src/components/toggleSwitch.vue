@@ -22,7 +22,12 @@ export default {
   name: "ToggleSwitch",
   data() {
     return {
-      state: this.toggleState,
+      state: (() => {
+        let themeState = localStorage.getItem("theme");
+        if (themeState === "light") return false;
+        else if (themeState === "dark") return true;
+        else console.error("Error: Unknown themeState.");
+      })(),
       css: {
         left: "calc(var(--source-size) * 0.25)",
         right: "calc(var(--source-size) * 1.75)",
@@ -88,7 +93,6 @@ export default {
   height: calc(var(--source-size) * 2);
   width: calc(var(--source-size) * 3.5);
   border-radius: calc(var(--source-size) * 1);
-  margin: calc(var(--source-size) * 1);
   transition: all 0.2s;
   .switch-inner {
     position: absolute;

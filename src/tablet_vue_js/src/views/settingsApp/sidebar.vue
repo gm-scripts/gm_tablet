@@ -63,6 +63,7 @@ export default {
         text-decoration: none;
         color: var(--text-color);
         transition: color 0.2s;
+        font-size: 2.2vh;
         &:hover {
           color: var(--text-color-hover);
           transition: color 0.1s;
