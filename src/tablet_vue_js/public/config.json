@@ -10,6 +10,7 @@
       "appPath": "/settings",
       "lang": {
         "appearanceTitle": "Appearance",
+        "infoTitle": "Device Info",
         "backgroundTitle": "Background image",
         "backgroundSwitchHeader": "Change Background Image"
       }

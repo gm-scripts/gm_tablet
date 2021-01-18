@@ -1,8 +1,8 @@
 <template>
   <!--  DEV  -->
-  <button @click="openTabletMsg">Open</button>
+  <!-- <button @click="openTabletMsg">Open</button>
   <button @click="closeTabletMsg">Close</button>
-  <button @click="clearLocalstorage">Reset</button>
+  <button @click="clearLocalstorage">Reset</button> -->
 
   <Frame
     :displayActivationState="display"
@@ -61,6 +61,7 @@ export default {
           // dark theme
           root.style.setProperty("--primary", "#333333");
           root.style.setProperty("--secondary", "#222222");
+          root.style.setProperty("--trinary", "#444444");
           root.style.setProperty("--text-color", "#f8f8f8");
           root.style.setProperty("--text-color-hover", "#afafaf");
           root.style.setProperty("--scrollbar-color", "#dfdfdf7f");
@@ -69,6 +70,7 @@ export default {
           // light theme
           root.style.setProperty("--primary", "#eeeeee");
           root.style.setProperty("--secondary", "#aaaaaa");
+          root.style.setProperty("--trinary", "#dddddd");
           root.style.setProperty("--text-color", "#222222");
           root.style.setProperty("--text-color-hover", "#3333337f");
           root.style.setProperty("--scrollbar-color", "#3333333f");
@@ -90,7 +92,7 @@ export default {
     this.controlTheme();
 
     //DEV
-    this.openTabletMsg();
+    // this.openTabletMsg();
 
     window.addEventListener("keydown", event => {
       if (event.keyCode == 27) {
@@ -135,7 +137,7 @@ body {
   width: 100vw;
 
   //DEV
-  background-color: #00000080;
+  // background-color: #00000080;
 }
 .frame {
   transition: opacity 0.5s;

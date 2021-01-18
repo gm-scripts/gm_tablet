@@ -12,19 +12,14 @@ const routes = [
     component: Desktop
   },
   {
-    path: "/settings",
-    name: "Settings",
+    path: "/settings/info",
+    name: "Appearance",
     component: () => import("../views/settings-main.vue")
   },
   {
-    path: "/settings/appearance",
+    path: "/settings",
     name: "SettingsAppearance",
     component: () => import("../views/settingsApp/appearancePage.vue")
-  },
-  {
-    path: "/settings/background",
-    name: "SettingsBackground",
-    component: () => import("../views/settingsApp/bgSwitcher.vue")
   },
   {
     path: "/banking",

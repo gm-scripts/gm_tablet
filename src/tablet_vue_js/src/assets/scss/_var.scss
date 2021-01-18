@@ -18,13 +18,15 @@ $text-color: #eeeeee;
 
 $light-primary: #eeeeee;
 $light-secondary: #aaaaaa;
+$light-trinary: #dddddd;
 $light-text-color: #222222;
 $light-text-color-hover: #333333;
 $light-scrollbar-color: #3333337f;
 $light-scrollbar-color-hover: #4444447f;
 
 $dark-primary: #333333;
-$dark-secondary: #222222;
+$dark-secondary: #666666;
+$dark-trinary:#444444;
 $dark-text-color: #cfcfcf;
 $dark-text-color-hover: #afafaf;
 $dark-scrollbar-color: #cfcfcf7f;
@@ -33,6 +35,7 @@ $dark-scrollbar-color-hover: #bfbfbf7f;
 :root {
   --primary: #{$light-primary};
   --secondary: #{$light-secondary};
+  --trinary: #{$light-trinary};
   --text-color: #{$light-text-color};
   --text-color-hover: #{$light-text-color-hover};
   --scrollbar-color: #{$light-scrollbar-color};

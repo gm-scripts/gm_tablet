@@ -18,13 +18,13 @@ export default {
       tabs: {
         theme: {
           title: self.getConfigData("lang").appearanceTitle,
-          path: "/settings/appearance",
-          id: "theme"
+          path: "/settings",
+          id: "appearance"
         },
         background: {
-          title: self.getConfigData("lang").backgroundTitle,
-          path: "/settings/background",
-          id: "background"
+          title: self.getConfigData("lang").infoTitle,
+          path: "/settings/info",
+          id: "info"
         }
       }
     };

@@ -1,14 +1,17 @@
 <template lang="">
   <div class="application">
     <Sidebar selectedItem="none"></Sidebar>
+    <DeviceInfo></DeviceInfo>
   </div>
 </template>
 <script>
 import Sidebar from "./settingsApp/sidebar.vue";
+import DeviceInfo from "./settingsApp/deviceInfo.vue";
 export default {
   name: "Settings",
   components: {
-    Sidebar
+    Sidebar,
+    DeviceInfo
   }
 };
 </script>
