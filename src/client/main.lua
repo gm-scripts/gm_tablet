@@ -26,9 +26,9 @@ Citizen.CreateThread(function()
             if Config.EnableItem then
                 ESX.TriggerServerCallback('tablet:DoesPlayerHaveTabletItem', function(item)
                     if item then
+                        print('ToggleTablet')
                         ToggleTablet()
                         TriggerEvent('tablet:Animation')
-                        print('ToggleTablet')
                     else
                         ESX.ShowNotification(_U('no_tablet'))
                     end

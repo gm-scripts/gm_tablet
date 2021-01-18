@@ -1,14 +1,30 @@
 -- FiveM Tablet / Made by Eichenholz and Obsidianical
 
+openTablet = false
+
+function SetDisplay(bool)
+    display = bool
+    SetNuiFocus(bool, bool)
+    SendNUIMessage({
+        type = "ui",
+        status = bool,
+    })
+end
+
 function ToggleTablet()
     SendNUIMessage({
-        openTablet = true
+        openTablet
     })
-    SetNuiFocus(true, true)
+    SetDisplay(true)
 end
+
+RegisterNUICallback("exit", function(data)
+    openTablet = false
+    SetDisplay(false)
+end)
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
-		SetNuiFocus(false)
+		SetDisplay(false)
 	end
 end)
