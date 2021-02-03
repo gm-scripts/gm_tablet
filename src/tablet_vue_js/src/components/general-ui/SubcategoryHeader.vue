@@ -30,7 +30,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../assets/scss/var";
+@import "../../assets/scss/var";
 .sub-category-header {
   --size: 0vh;
   text-align: right;

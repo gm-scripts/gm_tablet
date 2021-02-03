@@ -23,9 +23,9 @@
   </div>
 </template>
 <script>
-import Sidebar from "./sidebar.vue";
-import ToggleSwitch from "../../components/toggleSwitch.vue";
-import BgSwitcher from "./bgSwitcher.vue";
+import Sidebar from "../../components/settings/Sidebar.vue";
+import ToggleSwitch from "../../components/general-ui/ToggleSwitch.vue";
+import BgSwitcher from "../../components/settings/appearance/BackgroundSwitcher.vue";
 export default {
   name: "SettingsTheme",
   components: {

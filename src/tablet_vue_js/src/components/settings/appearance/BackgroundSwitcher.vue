@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import BgSelect from "./bgSelectorIcon.vue";
+import BgSelect from "./BackgroundSelectorIcon.vue";
 
 export default {
   name: "Settings",
@@ -27,8 +27,8 @@ export default {
   },
   data() {
     return {
-      bgSelectSunrisePath: require("../../../public/bg/tablet-bg.png"),
-      bgSelectFlowerPath: require("../../../public/bg/tablet-bg-flower.jpg")
+      bgSelectSunrisePath: require("../../../../public/bg/tablet-bg.png"),
+      bgSelectFlowerPath: require("../../../../public/bg/tablet-bg-flower.jpg")
     };
   },
   computed: {
@@ -40,8 +40,8 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../../assets/scss/mixins";
-@import "../../assets/scss/var";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/var";
 .application {
   height: 100%;
   font-family: $os-font;

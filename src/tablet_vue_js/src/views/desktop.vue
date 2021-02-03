@@ -41,7 +41,7 @@
   </div>
 </template>
 <script>
-import AppIcon from "../components/appIcon.vue";
+import AppIcon from "../components/desktop/AppIcon.vue";
 export default {
   name: "Desktop",
   data() {

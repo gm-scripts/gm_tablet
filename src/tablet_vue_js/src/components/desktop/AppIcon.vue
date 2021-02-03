@@ -26,7 +26,8 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../assets/scss/var";
+@import "../../assets/scss/var";
+
 .appIcon {
   margin-bottom: 2vh;
   display: grid;

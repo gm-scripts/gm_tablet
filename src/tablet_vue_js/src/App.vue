@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Frame from "./components/frame";
+import Frame from "./components/Frame.vue";
 
 export default {
   name: "App",

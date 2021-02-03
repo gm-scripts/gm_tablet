@@ -1,11 +1,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
-import Desktop from "../views/desktop.vue";
-import Appearance from "../views/settingsApp/appearancePage.vue";
-import Information from "../views/settings-main.vue";
-import Banking from "../views/banking.vue";
-import Transfer from "../views/bankingApp/transfer.vue";
-import Loans from "../views/bankingApp/loans.vue";
-import Invoices from "../views/bankingApp/invoices.vue";
+import Desktop from "../views/Desktop.vue";
+import Appearance from "../views/settings/Appearance.vue";
+import Info from "../views/settings/Info.vue";
+import Dashboard from "../views/banking/Dashboard.vue";
+import Transfer from "../views/banking/Transfer.vue";
+import Loans from "../views/banking/Loans.vue";
+import Invoices from "../views/banking/Invoices.vue";
 
 const routes = [
   {
@@ -21,12 +21,12 @@ const routes = [
   {
     path: "/settings/info",
     name: "Information",
-    component: Information
+    component: Info
   },
   {
     path: "/banking",
     name: "Banking",
-    component: Banking
+    component: Dashboard
   },
   {
     path: "/banking/transfer",

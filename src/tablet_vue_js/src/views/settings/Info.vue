@@ -1,5 +1,6 @@
-<template>
+<template lang="">
   <div class="application">
+    <Sidebar selectedItem="none"></Sidebar>
     <div class="content">
       <InfoBlock :info="infos[0].data" :title="infos[0].title"></InfoBlock>
       <InfoBlock :info="infos[1].data" :title="infos[1].title"></InfoBlock>
@@ -8,9 +9,16 @@
   </div>
 </template>
 <script>
-import InfoBlock from "../../components/infoBlock.vue";
+import Sidebar from "../../components/settings/Sidebar.vue";
+import InfoBlock from "../../components/general-ui/InfoBlock.vue";
+
 export default {
-  name: "DeviceInfo",
+  name: "Info",
+  components: {
+    Sidebar,
+    InfoBlock
+  },
+
   data() {
     return {
       infos: [
@@ -28,22 +36,25 @@ export default {
         }
       ]
     };
-  },
-  components: {
-    InfoBlock
   }
 };
 </script>
 <style scoped lang="scss">
+@import "../../assets/scss/mixins";
+@import "../../assets/scss/var";
 .application {
   position: absolute;
-  left: 26vh;
-  width: 71vh;
-  background-color: transparent;
+  height: 100%;
+  font-family: $os-font;
+  background-color: var(--primary);
   .content {
-    margin: 3vh;
+    box-sizing: border-box;
+    position: absolute;
+    margin-top: 3vh;
     display: grid;
     place-items: center;
+    width: 74.4%;
+    left: 25vh;
   }
 }
 </style>

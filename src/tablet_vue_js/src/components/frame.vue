@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Display from "./display.vue";
+import Display from "./Display.vue";
 
 export default {
   name: "Frame",

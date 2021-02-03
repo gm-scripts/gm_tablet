@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-import SubcategoryHeader from "../../components/subcategoryHeader.vue";
+import SubcategoryHeader from "../../components/general-ui/SubcategoryHeader.vue";
 export default {
   name: "Transfer",
   components: {

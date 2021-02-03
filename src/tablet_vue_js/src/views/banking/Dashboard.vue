@@ -36,10 +36,10 @@
   </div>
 </template>
 <script>
-import ControllerIcon from "./bankingApp/controllerIcon.vue";
-import LongElement from "./bankingApp/longElement.vue";
-import Header from "./bankingApp/headerElement.vue";
-import RecentTransactions from "./bankingApp/recentTransactions.vue";
+import ControllerIcon from "../../components/banking/dashboard/ControllerIcon.vue";
+import LongElement from "../../components/banking/dashboard/LongElement.vue";
+import Header from "../../components/banking/dashboard/HeaderElement.vue";
+import RecentTransactions from "../../components/banking/dashboard/RecentTransactions.vue";
 
 export default {
   name: "BankingApp",
@@ -50,19 +50,19 @@ export default {
         {
           label: "Loans",
           backgroundColor: "#cc3333",
-          icon: require("../assets/img/loans.png"),
+          icon: require("../../assets/img/loans.png"),
           destination: "/banking/loans"
         },
         {
           label: "Transfer",
           backgroundColor: "#cc3333",
-          icon: require("../assets/img/payments.png"),
+          icon: require("../../assets/img/payments.png"),
           destination: "/banking/transfer"
         },
         {
           label: "invoices",
           backgroundColor: "#cc3333",
-          icon: require("../assets/img/invoices.png"),
+          icon: require("../../assets/img/invoices.png"),
           destination: "/banking/invoices"
         }
       ],
@@ -138,7 +138,7 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-@import "../assets/scss/mixins";
+@import "../../assets/scss/mixins";
 .application {
   height: 100%;
   font-family: avenir, arial, sans-serif;
