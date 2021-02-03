@@ -2,6 +2,8 @@
 
 ESX = nil
 
+print('TabletStarted')
+
 Citizen.CreateThread(function()
 	while ESX == nil do
 		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
@@ -13,6 +15,13 @@ end)
                                     Functions
 =====================================================================================--]]
 
+function OpenTablet()
+    print('ToggleTablet')
+    ToggleTablet()
+    TriggerEvent('tablet:Animation')
+    TriggerServerEvent('tablet:getbalance')
+    LoadBills()
+end
 
 --[[=====================================================================================
                                  Toggle Tablet
@@ -23,22 +32,19 @@ local hasTabletItem = false
 Citizen.CreateThread(function()
     while true do
         if IsControlJustPressed(1, Config.OpenKey) then
+            print('F2 Pressed')
             if Config.EnableItem then
                 ESX.TriggerServerCallback('tablet:DoesPlayerHaveTabletItem', function(item)
                     if item then
-                        print('ToggleTablet')
-                        ToggleTablet()
-                        TriggerEvent('tablet:Animation')
+                        OpenTablet()
                     else
                         ESX.ShowNotification(_U('no_tablet'))
                     end
                 end, 'tablet')
             elseif not Config.EnableItem then
-                ToggleTablet()
-                TriggerEvent('tablet:Animation')
-                print('ToggleTablet2')
+                OpenTablet()
             end
         end
-        Citizen.Wait(2000)
+        Citizen.Wait(0)
     end
 end)
