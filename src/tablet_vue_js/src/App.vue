@@ -1,12 +1,12 @@
 <template>
   <!--  DEV  -->
-  <!-- <button @click="openTabletMsg">Open</button>
+  <button @click="openTabletMsg">Open</button>
   <button @click="closeTabletMsg">Close</button>
-  <button @click="clearLocalstorage">Reset</button> -->
+  <button @click="clearLocalstorage">Reset</button>
 
   <Frame
     :displayActivationState="display"
-    :style="{ opacity: opacity }"
+    :style="{ opacity: opacity, transform: transform }"
   ></Frame>
 </template>
 
@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       opacity: "0%",
+      transform: "rotate3d(1, 0, 0, 45deg) translateY(30vh) scale(0.8)",
       display: false
     };
   },
@@ -32,15 +33,17 @@ export default {
       postMessage({ openTablet: false });
     },
     openTablet() {
-      if (this.$store.getters) {
-        this.opacity = "100%";
-        setTimeout(() => (this.display = true), 500);
-      }
+      this.opacity = "100%";
+      this.transform = "rotate3d(1, 0, 0, 0deg) translateY(0vh) scale(1)";
+      setTimeout(() => (this.display = true), 1000);
     },
     closeTablet() {
       this.display = false;
       this.$store.commit("updateConfig");
-      setTimeout(() => (this.opacity = "0%"), 500);
+      setTimeout(() => {
+        this.opacity = "0%";
+        this.transform = "rotate3d(1, 0, 0, 45deg) translateY(30vh) scale(0.8)";
+      }, 1000);
     },
     clearLocalstorage: () => localStorage.clear(),
 
@@ -60,7 +63,8 @@ export default {
         } else if (theme === "dark") {
           // dark theme
           root.style.setProperty("--primary", "#333333");
-          root.style.setProperty("--secondary", "#222222");
+          root.style.setProperty("--secondary", "#666666");
+          root.style.setProperty("--secondary-hover", "#888888");
           root.style.setProperty("--trinary", "#444444");
           root.style.setProperty("--text-color", "#f8f8f8");
           root.style.setProperty("--text-color-hover", "#afafaf");
@@ -70,9 +74,10 @@ export default {
           // light theme
           root.style.setProperty("--primary", "#eeeeee");
           root.style.setProperty("--secondary", "#aaaaaa");
+          root.style.setProperty("--secondary-hover", "#777777");
           root.style.setProperty("--trinary", "#dddddd");
           root.style.setProperty("--text-color", "#222222");
-          root.style.setProperty("--text-color-hover", "#3333337f");
+          root.style.setProperty("--text-color-hover", "#777777");
           root.style.setProperty("--scrollbar-color", "#3333333f");
           root.style.setProperty("--scrollbar-color-hover", "#2222223f");
         }
@@ -92,7 +97,7 @@ export default {
     this.controlTheme();
 
     //DEV
-    // this.openTabletMsg();
+    this.openTabletMsg();
 
     window.addEventListener("keydown", event => {
       if (event.keyCode == 27) {
@@ -134,13 +139,17 @@ body {
   display: grid;
   place-items: center;
   height: 100vh;
+  overflow: hidden;
   width: 100vw;
 
+  perspective: 250vh;
+
   //DEV
-  // background-color: #00000080;
+  background-color: #00000080;
 }
 .frame {
-  transition: opacity 0.5s;
+  opacity: 0;
+  transition: opacity 1s, transform 1s;
 }
 ::-webkit-scrollbar {
   width: 1vh;

@@ -1,9 +1,11 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import Desktop from "../views/desktop.vue";
-// import Settings from "../views/settings-main.vue";
-// import SettingsAppearance from "../views/settingsApp/appearancePage.vue";
-// import SettingsBackground from "../views/settingsApp/bgSwitcher.vue";
-// import Banking from "../views/banking.vue";
+import Appearance from "../views/settingsApp/appearancePage.vue";
+import Information from "../views/settings-main.vue";
+import Banking from "../views/banking.vue";
+import Transfer from "../views/bankingApp/transfer.vue";
+import Loans from "../views/bankingApp/loans.vue";
+import Invoices from "../views/bankingApp/invoices.vue";
 
 const routes = [
   {
@@ -12,19 +14,34 @@ const routes = [
     component: Desktop
   },
   {
-    path: "/settings/info",
+    path: "/settings",
     name: "Appearance",
-    component: () => import("../views/settings-main.vue")
+    component: Appearance
   },
   {
-    path: "/settings",
-    name: "SettingsAppearance",
-    component: () => import("../views/settingsApp/appearancePage.vue")
+    path: "/settings/info",
+    name: "Information",
+    component: Information
   },
   {
     path: "/banking",
     name: "Banking",
-    component: () => import("../views/banking.vue")
+    component: Banking
+  },
+  {
+    path: "/banking/transfer",
+    name: "Transfer",
+    component: Transfer
+  },
+  {
+    path: "/banking/loans",
+    name: "Loans",
+    component: Loans
+  },
+  {
+    path: "/banking/invoices",
+    name: "Invoices",
+    component: Invoices
   }
 ];
 

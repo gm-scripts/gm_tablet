@@ -21,7 +21,7 @@
         <AppIcon
           v-for="app in apps"
           :key="app.id"
-          :title="app.title()"
+          :title="app.title"
           :iconSrc="app.icon"
           :triggersApp="app.appPath"
         ></AppIcon>
@@ -50,13 +50,13 @@ export default {
       apps: {
         settings: {
           id: 0,
-          title: () => self.getConfigApp("settings").title,
+          title: (() => self.getConfigApp("settings").title)(),
           icon: require("../assets/img/settingsApp.png"),
           appPath: "/settings"
         },
         banking: {
           id: 1,
-          title: () => self.getConfigApp("banking").title,
+          title: (() => self.getConfigApp("banking").title)(),
           icon: require("../assets/img/bankingApp.jpg"),
           appName: "banking",
           appPath: "/banking"
@@ -115,11 +115,13 @@ export default {
   width: 100%;
   line-height: $header-height;
   text-align: center;
-  backdrop-filter: blur(20vh);
-
+  backdrop-filter: blur(5vh);
+  border-bottom: 0.05vh solid rgba(255, 255, 255, 0.15);
   .internet-symbol {
     float: left;
     margin-left: 0.2vh;
+    position: relative;
+    bottom: 0.1vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-column-gap: 0.2vh;

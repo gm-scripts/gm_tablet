@@ -17,7 +17,24 @@
     },
     "banking": {
       "title": "Banking",
-      "appPath": "/banking"
+      "appPath": "/banking",
+      "bankName": "Maze Bank",
+      "bankColor": "#cc3333",
+      "currency": "$",
+      "lang": {
+        "dashboard": {
+          "linkLabelLoans": "Loans",
+          "linkLabelTransfer": "Transfer",
+          "linkLabelInvoices": "Invoices",
+          "balanceLabel": "Your Balance",
+          "accountNumberLabel": "Account Number",
+          "invoicesUnpaidText": "You have unpaid invoices!",
+          "invoicesPaidText": "You have no unpaid invoices."
+        },
+        "loans": {},
+        "transfer": {},
+        "invoices": {}
+      }
     }
   }
 }

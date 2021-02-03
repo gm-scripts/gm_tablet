@@ -1,9 +1,9 @@
 <template>
   <div class="application">
     <div class="content">
-      <InfoBlock :info="infos[0].title" :title="infos[0].data"></InfoBlock>
-      <InfoBlock :info="infos[1].title" :title="infos[1].data"></InfoBlock>
-      <InfoBlock :info="infos[2].title" :title="infos[2].data"></InfoBlock>
+      <InfoBlock :info="infos[0].data" :title="infos[0].title"></InfoBlock>
+      <InfoBlock :info="infos[1].data" :title="infos[1].title"></InfoBlock>
+      <InfoBlock :info="infos[2].data" :title="infos[2].title"></InfoBlock>
     </div>
   </div>
 </template>

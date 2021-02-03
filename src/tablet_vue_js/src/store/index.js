@@ -21,7 +21,16 @@ export default createStore({
         },
         banking: {
           title: "Banking",
-          appPath: "/banking"
+          appPath: "/banking",
+          bankName: "Maze Bank",
+          bankColor: "#cc3333",
+          lang: {
+            dashboard: {
+              linkLabelLoans: "Loans",
+              linkLabelTransfer: "Transfer",
+              linkLabelInvoices: "Invoices"
+            }
+          }
         }
       }
     },
@@ -39,8 +48,8 @@ export default createStore({
   mutations: {
     async updateConfig() {
       this.state.config = await fetch(process.env.BASE_URL + "config.json")
-        .then((response) => response.json())
-        .then((data) => {
+        .then(response => response.json())
+        .then(data => {
           this.state.configLoaded = true;
           return data;
         });
@@ -68,13 +77,13 @@ export default createStore({
   actions: {},
   modules: {},
   getters: {
-    config: (state) => state.config,
-    configLoaded: (state) => state.configLoaded,
-    toggleStates: (state) => state.toggleStates,
-    theme: (state) => (state.toggleStates.themeSwitch ? "light" : "dark"),
-    themeState: (state) => state.toggleStates.themeSwitch,
-    settingsLang: (state) => state.config.apps.settings.lang,
-    backgroundImage: (state) => {
+    config: state => state.config,
+    configLoaded: state => state.configLoaded,
+    toggleStates: state => state.toggleStates,
+    theme: state => (state.toggleStates.themeSwitch ? "light" : "dark"),
+    themeState: state => state.toggleStates.themeSwitch,
+    settingsLang: state => state.config.apps.settings.lang,
+    backgroundImage: state => {
       if (
         state.backgroundImage === null ||
         state.backgroundImage === undefined
@@ -85,7 +94,7 @@ export default createStore({
       }
       return state.backgroundImage;
     },
-    backgroundColor: (state) => {
+    backgroundColor: state => {
       if (
         state.backgroundColor === null ||
         state.backgroundColor === undefined
@@ -95,6 +104,7 @@ export default createStore({
         }, 200);
       }
       return state.backgroundColor;
-    }
+    },
+    bankingAppConfig: state => state.config.apps.banking
   }
 });
