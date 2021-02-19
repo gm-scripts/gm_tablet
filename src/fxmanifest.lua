@@ -22,6 +22,7 @@ client_scripts {
 }
 
 server_scripts {
+    '@mysql-async/lib/MySQL.lua',
     '@1_6/locale.lua',
     'server/*'
 }

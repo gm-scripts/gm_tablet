@@ -14,7 +14,6 @@ end)
 
 RegisterNetEvent('tablet:currentbalance')
 AddEventHandler('tablet:currentbalance', function(balance)
-
 	SendNUIMessage({
 		type = "balance",
 		balance = balance,
