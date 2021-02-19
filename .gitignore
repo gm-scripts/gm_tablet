@@ -1,5 +1,6 @@
 .DS_Store
 src/frontend/node_modules
+dist/*
 
 node_modules
 
@@ -22,3 +23,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+src/tablet_vue_js/dist/*

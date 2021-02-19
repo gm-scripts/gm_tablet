@@ -56,7 +56,7 @@ export default {
         {
           label: "Transfer",
           backgroundColor: "#cc3333",
-          icon: require("../../assets/img/payments.png"),
+          icon: require("../../assets/img/transfer.svg"),
           destination: "/banking/transfer"
         },
         {
@@ -134,6 +134,23 @@ export default {
 
       this.accNumElement.accNumLabel = this.lang.accountNumberLabel;
     }
+  },
+  mounted() {
+    window.addEventListener("message", (event) => {
+      let item = event.data;
+      console.log(event);
+      if (item.type === "banknumber") {
+        this.accNumElement.userAccountNumber = "" + item.number;
+      }
+      switch (item.type) {
+        case "balance":
+          this.balElement.userBalance = item.balance;
+          break;
+        case "banknumber":
+          this.accNumElement.userAccountNumber = "" + item.number;
+          break;
+      }
+    });
   }
 };
 </script>
